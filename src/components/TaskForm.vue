@@ -9,28 +9,24 @@
     </form>
 </template>
 
-<script>
+<script setup >
 import { ref } from 'vue';
 import { useTaskStore } from '../store/TaskStore';
 
 
-    export default {
-    data() {
-        const taskStore = useTaskStore()
 
-        const newTask = ref('')
+    const taskStore = useTaskStore()
+    const newTask = ref('')
 
-            const handleSubmit= ()=> {
-                if (newTask.value.length > 0) {
-                    taskStore.addTask({
-                        title: newTask.value,
-                        isFav: false,
-                        id: Math.floor(Math.random() * 10000)
-                    })
-                    newTask.value = ''
-                }
-            }
-        return { handleSubmit, newTask}
+    const handleSubmit= ()=> {
+        if (newTask.value.length > 0) {
+            taskStore.addTask({
+                title: newTask.value,
+                isFav: false,
+                id: Math.floor(Math.random() * 10000)
+            })
+            newTask.value = ''
         }
     }
+
 </script>

@@ -41,41 +41,29 @@
       <!-- <button @click="taskStore.$reset">Reset state </button>         -->
       <!-- Se puede resetear los estados del store usando $reset, descomentar el boton y probar-->
 
-
-
   </main>
 
 </template>
 
 
 
-<script>
+<script setup>
 import { storeToRefs } from 'pinia';
 import TaskDetails from './components/TaskDetails.vue'
 import TaskForm from './components/TaskForm.vue'
 import { useTaskStore } from './store/TaskStore';
 import { ref } from 'vue'
 
-export default {
-  components: { TaskDetails, TaskForm},
-  setup() {
-    const taskStore = useTaskStore()
+const taskStore = useTaskStore()
 
-    // store to refs, Creates an object of references with all the state, getters, and plugin-added state properties of the store. Similar to toRefs() but specifically designed for Pinia stores so methods and non reactive properties are completely ignored. The param to pass is a store — store to extract the refs from
-    // Para llamar a las acciones se debe realizar de forma habitual ejemplo: taskStore.addTask
+// store to refs, Creates an object of references with all the state, getters, and plugin-added state properties of the store. Similar to toRefs() but specifically designed for Pinia stores so methods and non reactive properties are completely ignored. The param to pass is a store — store to extract the refs from
+// Para llamar a las acciones se debe realizar de forma habitual ejemplo: taskStore.addTask
 
-    const {tasks, loading, favs, totalCount, favCount} = storeToRefs(taskStore)
+const {tasks, loading, favs, totalCount, favCount} = storeToRefs(taskStore)
 
-    //fetch tasks
+//fetch tasks
 
-    taskStore.getTasks()
-
-    const filter = ref('all')
-
-    return {
-      taskStore, filter , tasks, loading, favs, totalCount, favCount
-    }
-  }
-}
+taskStore.getTasks()
+const filter = ref('all')
 
 </script>
