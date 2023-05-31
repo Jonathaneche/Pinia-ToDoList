@@ -17,6 +17,10 @@ export const useTaskStore = defineStore("taskStore", {
         return currentValue.isFav ? previewsValue + 1 : previewsValue;
       }, 0);
     },
+    //Definiendo TotalCount usando arrow function para apreder ambas sintaxis, se debe pasar el state como argumento dentro de la funcion flecha para poder acceder a esos datos, (se realiza de esta manera cuando se usa esta sintaxis)
+    TotalCount: (state) => {
+      return state.tasks.length;
+    },
   },
 });
 
