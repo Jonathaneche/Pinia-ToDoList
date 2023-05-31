@@ -49,6 +49,16 @@ npm run dev  (Inicia el servidor)
 npm run build    (Crea el archivo dist cuando se va a realizar el deployment)
 ```
 
+## Creation of Database using Json server
+
+npm install -g json-server
+
+## Lauching json-server
+
+(Estando en la caperta del proyecto podemos lanzar el json-serve con este comando)
+
+json-server -w ./data/db.json
+
 ## Recommended IDE Setup
 
 This template should help get you started developing with Vue 3 in Vite.

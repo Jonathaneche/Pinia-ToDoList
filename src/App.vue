@@ -18,6 +18,10 @@
       <button @click="filter = 'favs' "> Fav tasks</button> <!-- Al hacer click la variable reactiva filter toma como valor favs y por lo tanto muestra solo las tareas favoritas porque se relaciona con el v-if favs task list-->
     </nav>
 
+    <!-- loading -->
+
+    <div class="loading" v-if="taskStore.loading">Loading tasks...</div>
+
     <!--All tasks list -->
     <div class="task-list" v-if="filter === 'all'">
       <p>You have {{ taskStore.totalCount }} tasks left to do</p>
@@ -50,6 +54,10 @@ export default {
   components: { TaskDetails, TaskForm},
   setup() {
     const taskStore = useTaskStore()
+
+    //fetch tasks
+
+    taskStore.getTasks()
 
     const filter = ref('all')
 

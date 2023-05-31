@@ -2,10 +2,8 @@ import { defineStore } from "pinia";
 
 export const useTaskStore = defineStore("taskStore", {
   state: () => ({
-    tasks: [
-      { id: 1, title: "buy some milk", isFav: false },
-      { id: 2, title: "play Gloomhaven", isFav: true },
-    ],
+    tasks: [],
+    loading: false,
   }),
   getters: {
     favs() {
@@ -23,6 +21,15 @@ export const useTaskStore = defineStore("taskStore", {
     },
   },
   actions: {
+    async getTasks() {
+      this.loading = true;
+      const url = "http://localhost:3000/tasks";
+      const res = await fetch(url);
+      const data = await res.json();
+
+      this.tasks = data;
+      this.loading = false;
+    },
     // Realizaremos las acciones para borrar, agregar a favoritos, y agregar una nueva tarea (Task)
     //2. addTask se explica en un comentario abajo, mirar.
     addTask(task) {
