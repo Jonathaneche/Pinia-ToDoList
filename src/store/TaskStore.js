@@ -30,16 +30,28 @@ export const useTaskStore = defineStore("taskStore", {
     },
     //3. deleteTask(id) se explica en un comentario abajo, mirar.
     deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => {
-        return task.id !== id;
+      this.tasks = this.tasks.filter((tarea) => {
+        return tarea.id !== id;
       });
     },
 
     //4. toggleFav(id) se explica en un comentario abajo, mirar.
     toggleFav(id) {
-      const task = this.tasks.find((task) => task.d === id);
+      const task = this.tasks.find((tarea) => tarea.id === id);
       task.isFav = !task.isFav;
     },
+
+    //Si donde parametro le llamo task en lugar de tarea da error
+
+    // deleteTask(id) {
+    //   this.tasks = this.tasks.filter((t) => {
+    //     return t.id !== id;
+    //   });
+    // },
+    // toggleFav(id) {
+    //   const task = this.tasks.find((t) => t.id === id);
+    //   task.isFav = !task.isFav;
+    // },
   },
 });
 
