@@ -32,20 +32,50 @@ export const useTaskStore = defineStore("taskStore", {
     },
     // Realizaremos las acciones para borrar, agregar a favoritos, y agregar una nueva tarea (Task)
     //2. addTask se explica en un comentario abajo, mirar.
-    addTask(task) {
+    async addTask(task) {
       this.tasks.push(task);
+      const url = "http://localhost:3000/tasks";
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(task),
+        headers: { "Content-type": "application/json" },
+      });
+
+      if (res.error) {
+        console.log(res.error);
+      }
     },
     //3. deleteTask(id) se explica en un comentario abajo, mirar.
-    deleteTask(id) {
+    async deleteTask(id) {
       this.tasks = this.tasks.filter((tarea) => {
         return tarea.id !== id;
       });
+
+      const url = "http://localhost:3000/tasks";
+      const res = await fetch(`${url}/${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.error) {
+        console.log(res.error);
+      }
     },
 
     //4. toggleFav(id) se explica en un comentario abajo, mirar.
-    toggleFav(id) {
+    async toggleFav(id) {
       const task = this.tasks.find((tarea) => tarea.id === id);
       task.isFav = !task.isFav;
+
+      const url = "http://localhost:3000/tasks";
+      const res = await fetch(`${url}/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({ isFav: task.isFav }),
+        headers: { "Content-type": "application/json" },
+      });
+
+      if (res.error) {
+        console.log(res.error);
+      }
     },
 
     //Si donde parametro le llamo task en lugar de tarea da error
