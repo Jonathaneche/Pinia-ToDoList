@@ -1,6 +1,8 @@
-# pinia-tasks
+# Pinia-ToDoList
 
-This template should help get you started developing with Vue 3 in Vite.
+Aprendiendo a usar Pinia siguiendo el curso de "The Net Ninja" - Pinia Crash Course
+
+https://www.youtube.com/playlist?list=PL4cUxeGkcC9hp28dYyYBy3xoOdoeNw-hD
 
 ## Iniciar el proyecto
 
@@ -31,6 +33,8 @@ npm run build    (Crea el archivo dist cuando se va a realizar el deployment)
 ```
 
 ## Recommended IDE Setup
+
+This template should help get you started developing with Vue 3 in Vite.
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
