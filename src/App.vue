@@ -14,7 +14,7 @@
 
     <!--All tasks list -->
     <div class="task-list" v-if="filter === 'all'">
-      <p>All tasks</p>
+      <p>You have {{ taskStore.totalCount }} tasks left to do</p>
       <div v-for="task in taskStore.tasks" :key="task.id"> <!-- Aqui estamos usando el estado tasks que contiene todas las tareas-->
       <TaskDetails :task="task"/>
     </div>
@@ -22,7 +22,7 @@
 
         <!-- favs tasks list -->
       <div class="task-list" v-if="filter === 'favs'">
-        <p>Fav tasks</p>
+        <p>You have {{ taskStore.favCount }} fav tasks left to do</p>
         <div v-for="task in taskStore.favs" :key="task.id"> <!-- Aqui estamos usando el getter favs que contiene las tareas favoritas-->
         <TaskDetails :task="task"/>
       </div>

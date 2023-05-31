@@ -11,21 +11,21 @@ export const useTaskStore = defineStore("taskStore", {
     favs() {
       return this.tasks.filter((task) => task.isFav);
     },
-    //FavCount se explica en un comentario abajo, mirar.
-    FavCount() {
+    //favCount se explica en un comentario abajo, mirar.
+    favCount() {
       return this.tasks.reduce((previewsValue, currentValue) => {
         return currentValue.isFav ? previewsValue + 1 : previewsValue;
       }, 0);
     },
-    //Definiendo TotalCount usando arrow function para apreder ambas sintaxis, se debe pasar el state como argumento dentro de la funcion flecha para poder acceder a esos datos, (se realiza de esta manera cuando se usa esta sintaxis)
-    TotalCount: (state) => {
+    //Definiendo totalCount usando arrow function para apreder ambas sintaxis, se debe pasar el state como argumento dentro de la funcion flecha para poder acceder a esos datos, (se realiza de esta manera cuando se usa esta sintaxis)
+    totalCount: (state) => {
       return state.tasks.length;
     },
   },
 });
 
 /*
-La función FavCount() utiliza el método reduce() en la matriz tasks para iterar sobre cada tarea y acumular el número de tareas favoritas.
+La función favCount() utiliza el método reduce() en la matriz tasks para iterar sobre cada tarea y acumular el número de tareas favoritas.
 
 El método reduce() toma una función de devolución de llamada y un valor inicial. En este caso, la función de devolución de llamada se define como una función de flecha con dos parámetros: previousValue (valor anterior) y currentValue (valor actual). La función de devolución de llamada comprueba si currentValue.isFav es verdadero. Si es verdadero, se incrementa el contador previousValue en 1 y se devuelve como el nuevo valor anterior. Si currentValue.isFav es falso, simplemente se devuelve el valor anterior sin cambios.
 
@@ -33,5 +33,5 @@ La función reduce() se ejecuta una vez para cada elemento en la matriz tasks y 
 
 El segundo argumento de reduce() es el valor inicial, que en este caso se establece en 0. Esto significa que previousValue se inicializa en 0 antes de comenzar a iterar sobre las tareas.
 
-En resumen, la función FavCount() recorre la matriz tasks y cuenta el número de tareas que tienen la propiedad isFav establecida en true, devolviendo ese recuento total.
+En resumen, la función favCount() recorre la matriz tasks y cuenta el número de tareas que tienen la propiedad isFav establecida en true, devolviendo ese recuento total.
 */
