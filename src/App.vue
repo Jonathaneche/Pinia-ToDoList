@@ -6,6 +6,12 @@
       <h1>{{ taskStore.name }}</h1>
     </header>
 
+    <!-- New task form -->
+
+    <div class="new-task-form">
+      <TaskForm />
+    </div>
+
     <!-- filter -->
     <nav class="filter">
       <button @click="filter = 'all' "> All tasks</button> <!-- Al hacer click la variable reactiva filter toma como valor all y por lo tanto muestra todas las tareas porque se relaciona con el v-if All task list-->
@@ -36,11 +42,12 @@
 
 <script>
 import TaskDetails from './components/TaskDetails.vue'
+import TaskForm from './components/TaskForm.vue'
 import { useTaskStore } from './store/TaskStore';
 import { ref } from 'vue'
 
 export default {
-  components: { TaskDetails},
+  components: { TaskDetails, TaskForm},
   setup() {
     const taskStore = useTaskStore()
 

@@ -11,7 +11,7 @@ export const useTaskStore = defineStore("taskStore", {
     favs() {
       return this.tasks.filter((task) => task.isFav);
     },
-    //favCount se explica en un comentario abajo, mirar.
+    //1.favCount se explica en un comentario abajo, mirar.
     favCount() {
       return this.tasks.reduce((previewsValue, currentValue) => {
         return currentValue.isFav ? previewsValue + 1 : previewsValue;
@@ -22,9 +22,17 @@ export const useTaskStore = defineStore("taskStore", {
       return state.tasks.length;
     },
   },
+  actions: {
+    // Realizaremos las acciones para borrar, agregar a favoritos, y agregar una nueva tarea (Task)
+    //2. addTask se explica en un comentario abajo, mirar.
+    addTask(task) {
+      this.tasks.push(task);
+    },
+  },
 });
 
-/*
+/*1.
+
 La función favCount() utiliza el método reduce() en la matriz tasks para iterar sobre cada tarea y acumular el número de tareas favoritas.
 
 El método reduce() toma una función de devolución de llamada y un valor inicial. En este caso, la función de devolución de llamada se define como una función de flecha con dos parámetros: previousValue (valor anterior) y currentValue (valor actual). La función de devolución de llamada comprueba si currentValue.isFav es verdadero. Si es verdadero, se incrementa el contador previousValue en 1 y se devuelve como el nuevo valor anterior. Si currentValue.isFav es falso, simplemente se devuelve el valor anterior sin cambios.
@@ -34,4 +42,9 @@ La función reduce() se ejecuta una vez para cada elemento en la matriz tasks y 
 El segundo argumento de reduce() es el valor inicial, que en este caso se establece en 0. Esto significa que previousValue se inicializa en 0 antes de comenzar a iterar sobre las tareas.
 
 En resumen, la función favCount() recorre la matriz tasks y cuenta el número de tareas que tienen la propiedad isFav establecida en true, devolviendo ese recuento total.
+*/
+
+/*2.
+
+addTask(task) se utiliza para agregar una nueva tarea al arreglo tasks utilizando la función push(). Después de llamar a este método, la nueva tarea estará presente al final del arreglo tasks.
 */

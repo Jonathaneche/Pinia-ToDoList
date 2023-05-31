@@ -1,0 +1,11 @@
+En Pinia, que es una biblioteca de gestión de estado para Vue.js, los conceptos principales son: `state`, `getters` y `actions`.
+
+Aquí está una explicación de cada uno de ellos:
+
+1. `State` (estado): El estado es donde se almacena y se mantiene la información en la aplicación. Representa el estado actual de la aplicación en un momento dado. El estado es una propiedad reactiva y puede ser accedido y modificado desde cualquier componente que esté utilizando la instancia de Pinia. En Pinia, el estado se define en los módulos de la tienda utilizando propiedades.
+
+2. `Getters` (obtenedores): Los getters son funciones que permiten acceder a los datos del estado de forma computada. Son útiles cuando necesitas realizar cálculos o transformaciones sobre los datos del estado antes de utilizarlos en un componente. Los getters pueden recibir argumentos y también pueden depender de otros getters. En Pinia, los getters se definen en los módulos de la tienda utilizando métodos.
+
+3. `Actions` (acciones): Las acciones son funciones que permiten realizar operaciones asíncronas o tareas que pueden modificar el estado. Se utilizan para manejar la lógica de negocio, realizar solicitudes HTTP, llamar a mutaciones, etc. Las acciones pueden recibir argumentos y también pueden depender de otros getters o acciones. En Pinia, las acciones se definen en los módulos de la tienda utilizando métodos.
+
+En resumen, el `state` representa el estado actual de la aplicación, los `getters` proporcionan una forma de obtener datos del estado de forma computada, y las `actions` permiten realizar operaciones asíncronas o modificar el estado. Estos conceptos trabajan juntos para manejar y administrar el estado de la aplicación en Pinia.
