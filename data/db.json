@@ -8,11 +8,11 @@
     {
       "id": 2,
       "title": "mow the lawn",
-      "isFav": true
+      "isFav": false
     },
     {
       "title": "become an eldern lord",
-      "isFav": false,
+      "isFav": true,
       "id": 3
     }
   ]
