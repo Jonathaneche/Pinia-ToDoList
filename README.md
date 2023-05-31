@@ -18,6 +18,23 @@ npm install  (instalar las dependencias)
 
 ```
 
+## Pinia installation and setup
+
+npm install pinia (Instala Pinia en el proyecto)
+
+```
+Importar Pinia en el archivo main.js
+
+import "./assets/main.css";
+import { createApp } from "vue";
+import App from "./App.vue";
+import { createPinia } from "pinia";
+
+const pinia = createPinia();
+createApp(App).use(pinia).mount("#app");
+
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
