@@ -28,6 +28,18 @@ export const useTaskStore = defineStore("taskStore", {
     addTask(task) {
       this.tasks.push(task);
     },
+    //3. deleteTask(id) se explica en un comentario abajo, mirar.
+    deleteTask(id) {
+      this.tasks = this.tasks.filter((task) => {
+        return task.id !== id;
+      });
+    },
+
+    //4. toggleFav(id) se explica en un comentario abajo, mirar.
+    toggleFav(id) {
+      const task = this.tasks.find((task) => task.d === id);
+      task.isFav = !task.isFav;
+    },
   },
 });
 
@@ -47,4 +59,16 @@ En resumen, la función favCount() recorre la matriz tasks y cuenta el número d
 /*2.
 
 addTask(task) se utiliza para agregar una nueva tarea al arreglo tasks utilizando la función push(). Después de llamar a este método, la nueva tarea estará presente al final del arreglo tasks.
+*/
+
+/*
+3.
+
+deleteTask(id) se utiliza para eliminar una tarea del arreglo tasks basándose en su identificador (id). Utiliza el método filter() para crear un nuevo arreglo filtrado que excluye la tarea con el id especificado, y luego actualiza la propiedad tasks con el nuevo arreglo filtrado. Después de llamar a este método, la tarea correspondiente al id ya no estará presente en el arreglo tasks.
+
+*/
+
+/*4.
+toggleFav(id) se utiliza para cambiar el estado de favorito de una tarea en el arreglo tasks basándose en su identificador (id). Busca la tarea correspondiente al id utilizando el método find(), y luego cambia el estado de favorito de la tarea invirtiendo su valor actual utilizando !task.isFav.
+
 */
